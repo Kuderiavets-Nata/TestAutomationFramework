@@ -1,0 +1,61 @@
+{
+  "uuid": "7501155a-186d-4a5f-a30e-d382e091ad81",
+  "historyId": "70d0f3d8812a1c03486af485f5b7da0f",
+  "fullName": "tests.web.login.negative.LoginWithInvalidCredentials.LoginWithInvalidLoginAndPassword",
+  "labels": [
+    {
+      "name": "package",
+      "value": "tests.web.login.negative.LoginWithInvalidCredentials"
+    },
+    {
+      "name": "testClass",
+      "value": "tests.web.login.negative.LoginWithInvalidCredentials"
+    },
+    {
+      "name": "testMethod",
+      "value": "LoginWithInvalidLoginAndPassword"
+    },
+    {
+      "name": "parentSuite",
+      "value": "Default Suite"
+    },
+    {
+      "name": "suite",
+      "value": "Diploma2022"
+    },
+    {
+      "name": "subSuite",
+      "value": "tests.web.login.negative.LoginWithInvalidCredentials"
+    },
+    {
+      "name": "host",
+      "value": "MacBook-Pro-Natala-Kuderavec.local"
+    },
+    {
+      "name": "thread",
+      "value": "1648@MacBook-Pro-Natala-Kuderavec.local.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "testng"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    }
+  ],
+  "links": [],
+  "name": "LoginWithInvalidLoginAndPassword",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [],
+  "attachments": [],
+  "parameters": [],
+  "start": 1653514789949,
+  "stop": 1653514792287
+}

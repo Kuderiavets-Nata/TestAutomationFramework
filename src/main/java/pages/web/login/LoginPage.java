@@ -1,51 +1,77 @@
 package pages.web.login;
 
-import org.openqa.selenium.By;
+import io.qameta.allure.Step;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import pages.web.base.BasePage;
 
-public class LoginPage extends BasePage {
+import static pages.web.login.LoginPageLocators.*;
 
-    private final By usernameTextBox = By.name("username");
-    private final By passwordTextBox = By.name("password");
-    private final By submitButton = By.xpath("//button[@type='submit']");
-    private final By loginErrorMassage = By.id("slfErrorAlert");
+@Slf4j
+public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
+    public boolean checkIfUsernameTextBoxIsDisplayed() {
+        return driver.findElement(USERNAME_TEXT_BOX).isDisplayed();
+    }
+
+    public boolean checkIfPasswordTextBoxIsDisplayed() {
+        return driver.findElement(PASSWORD_TEXT_BOX).isDisplayed();
+    }
+
+    public boolean checkIfSubmitButtonIsDisplayed() {
+        return driver.findElement(SUBMIT_BUTTON).isDisplayed();
+    }
+
+    public boolean checkIfLoginErrorMessageIsDisplayed() {
+        return driver.findElement(LOGIN_ERROR_MASSAGE).isDisplayed();
+    }
+
+    @Step("Entering email address")
     public LoginPage enterlogin(String username) {
-
-        driver.findElement(usernameTextBox).click();
-        driver.findElement(usernameTextBox).sendKeys(username);
-
+        log.info("Entering email address", username);
+        waitUntilElementIsPresent(USERNAME_TEXT_BOX);
+        driver.findElement(USERNAME_TEXT_BOX).clear();
+        clearAndfillInFieldWith(USERNAME_TEXT_BOX, username);
         return this;
     }
 
+    @Step("Entering password")
     public LoginPage enterPassword(String password) {
-
-        driver.findElement(passwordTextBox).click();
-        driver.findElement(passwordTextBox).sendKeys(password);
-
+        log.info("Entering password");
+        waitUntilElementIsPresent(PASSWORD_TEXT_BOX);
+        driver.findElement(USERNAME_TEXT_BOX).clear();
+        clearAndfillInFieldWith(PASSWORD_TEXT_BOX, password);
         return this;
     }
 
-    public LoginPage clickToSubmit() {
 
-        WebElement submitBnt = driver.findElement(submitButton);
-        waitElementVisible(submitBnt).click();
-
+    @Step("Clicking on submit button")
+    public LoginPage clickSubmitButton() {
+        log.info("Clicking on submit button");
+        waitUntilElementClickable(SUBMIT_BUTTON);
+        clickElementBy(SUBMIT_BUTTON);
         return this;
     }
 
-    public void CheckLoginErrorMassageIsDisplayed() {
-
-        Assert.assertTrue(driver.findElement(loginErrorMassage).isDisplayed());
-
+    @Step("Checking error message is displayed")
+    public boolean CheckLoginErrorMassageIsDisplayed(String message) {
+        try {
+            log.info("Checking error message is displayed");
+            Thread.sleep(500);
+            String xmlFormat = driver.getPageSource();
+            if (xmlFormat.contains(message)) {
+                return true;
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
+
 }
 
 
