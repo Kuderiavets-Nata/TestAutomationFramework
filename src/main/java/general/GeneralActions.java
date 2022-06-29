@@ -6,9 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 
-import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
-import static constants.Constant.Timeouts.FOUR_SEC_WAIT;
 import static general.config.BROWSER_TYPE;
 
 public class GeneralActions {
@@ -27,7 +26,7 @@ public class GeneralActions {
                 Assert.fail("No such browser" + BROWSER_TYPE);
         }
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(FOUR_SEC_WAIT));
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         return driver;
     }
 }

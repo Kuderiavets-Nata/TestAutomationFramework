@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Test Suite" verbose="2" thread-count="1">
+    <listeners>
+        <listener class-name="listeners.TestAllureListeners"/>
+    </listeners>
+    <test name="Tests">
+        <classes>
+            <class name="tests.web.login.LoginTest"/>
+            <class name="tests.web.home.CheckBaseHomeFunctionality"/>
+        </classes>
+    </test>
+</suite>

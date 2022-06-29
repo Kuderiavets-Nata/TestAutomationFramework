@@ -6,7 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import pages.web.base.BasePage;
+import pages.web.home.HomePage;
 import pages.web.login.LoginPage;
+import pages.web.myProfile.MyProfilePage;
 
 import static general.config.CLEAR_COOKIES_AND_STORAGE;
 import static general.config.HOLD_BROWSER_OPEN;
@@ -16,6 +18,8 @@ public class BaseTest {
     protected WebDriver driver = GeneralActions.createDriver();
     protected BasePage basePage = new BasePage(driver);
     protected LoginPage loginPage = new LoginPage(driver);
+    protected HomePage homePage = new HomePage(driver);
+    protected MyProfilePage myProfilePage = new MyProfilePage(driver);
 
     @AfterTest
     public void clearCookiesAndLocalStorage() {
@@ -33,6 +37,5 @@ public class BaseTest {
             driver.quit();
         }
     }
-
 
 }
